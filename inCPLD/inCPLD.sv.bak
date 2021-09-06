@@ -1,0 +1,51 @@
+module PatternDetector (input reset_sync,
+                        input clk,
+                        input CS,
+                        output MISO);
+								
+enum {IDLE, 
+		sendStatus, 
+		SrchChar3, 
+		SrchChar4, 
+		WaitAck,
+		XX} state, next; 								
+	
+output reg [7:0] Count	
+	
+always_ff @(posedge clk, posedge reset_sync)
+	if (reset_sync)	current_state <= IDLE;
+	else			current_state <= next_state;
+
+always_comb begin
+	next = IDLE;
+	
+	case (current_state)
+						
+		IDLE:				if (!cs)	next_state = sendStatus;	// If b, search o  
+							else								next = IDLE; 		// Search first b
+						
+		sendStatus:		if (CS)				next_state = IDLE;	// If o, search a
+							else if (cnt < 75)		next_state = iopin;	// If b, search o
+							else if (cnt < 80)		next_state = zeroPadding;		// If others, search first b
+							else if (cnt )			next_state = Wait_CS_End;
+							
+		
+		Wait_CS_End:	if (CS)							next_state = IDLE;		// Confirm ACK
+							else								next_state = Wait_CS_End;
+		
+		default:												next = IDLE;
+	endcase
+end
+
+always_ff @(posedge clk, posedge reset_sync)	begin  
+	if (reset_sync)	found_pattern <= 0;
+	else begin
+		case (next)
+		IDLE:			Count <= 0;
+		sendStatus:		Count[3:0] <= Count[3:0] + 1;					
+		default:			Count <= 0;
+		endcase		
+	end
+end
+	
+endmodule

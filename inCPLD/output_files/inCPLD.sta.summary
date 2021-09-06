@@ -1,0 +1,29 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'spi_clk'
+Slack : -8.477
+TNS   : -62.513
+
+Type  : Setup 'pclk_50M'
+Slack : -3.245
+TNS   : -6.061
+
+Type  : Hold 'pclk_50M'
+Slack : 1.078
+TNS   : 0.000
+
+Type  : Hold 'spi_clk'
+Slack : 2.116
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'pclk_50M'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'spi_clk'
+Slack : -2.289
+TNS   : -2.289
+
+------------------------------------------------------------

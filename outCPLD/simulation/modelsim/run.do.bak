@@ -1,0 +1,30 @@
+# Compile Design
+vsim rtl_work.cordic_tb -L altera_mf_ver -L altera_lnsim_ver
+
+add wave sim:/cordic_tb/csi_clockreset_clk
+add wave sim:/cordic_tb/csi_clockreset_reset_n
+add wave -hex sim:/cordic_tb/avs_s1_address
+add wave sim:/cordic_tb/avs_s1_read
+add wave -decimal sim:/cordic_tb/avs_s1_readdata
+add wave sim:/cordic_tb/avs_s1_write
+add wave -decimal sim:/cordic_tb/avs_s1_writedata
+add wave -decimal sim:/cordic_tb/DUT/intPh
+add wave -decimal sim:/cordic_tb/DUT/tuning
+add wave -decimal sim:/cordic_tb/DUT/ena
+add wave -decimal sim:/cordic_tb/DUT/phase
+add wave -decimal sim:/cordic_tb/DUT/state
+add wave -decimal sim:/cordic_tb/DUT/go
+add wave -decimal sim:/cordic_tb/DUT/sample
+add wave -decimal sim:/cordic_tb/DUT/sampleDone
+add wave -decimal sim:/cordic_tb/DUT/idtx
+add wave -decimal sim:/cordic_tb/DUT/idrx
+add wave -decimal sim:/cordic_tb/DUT/waveDone
+add wave -decimal sim:/cordic_tb/DUT/U1/go
+add wave -decimal sim:/cordic_tb/DUT/U1/target
+add wave -decimal sim:/cordic_tb/DUT/U1/X
+add wave -decimal sim:/cordic_tb/DUT/U1/done
+
+
+
+run 50us
+

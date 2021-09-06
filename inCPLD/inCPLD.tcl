@@ -1,0 +1,170 @@
+# Copyright (C) 2018  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+
+# Quartus Prime: Generate Tcl File for Project
+# File: inCPLD.tcl
+# Generated on: Sat Sep  4 13:43:05 2021
+
+# Load Quartus Prime Tcl Project package
+package require ::quartus::project
+
+set need_to_close_project 0
+set make_assignments 1
+
+# Check that the right project is open
+if {[is_project_open]} {
+	if {[string compare $quartus(project) "inCPLD"]} {
+		puts "Project inCPLD is not open"
+		set make_assignments 0
+	}
+} else {
+	# Only open if not already open
+	if {[project_exists inCPLD]} {
+		project_open -revision inCPLD inCPLD
+	} else {
+		project_new -revision inCPLD inCPLD
+	}
+	set need_to_close_project 1
+}
+
+# Make assignments
+if {$make_assignments} {
+	set_global_assignment -name FAMILY "MAX II"
+	set_global_assignment -name DEVICE EPM240T100C5
+	set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
+	set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:12:10  SEPTEMBER 03, 2021"
+	set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
+	set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+	set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+	set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+	set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
+	set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
+	set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+	set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+	set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+	set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+	set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+	set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH inCPLD_tb -section_id eda_simulation
+	set_global_assignment -name EDA_TEST_BENCH_NAME inCPLD_tb -section_id eda_simulation
+	set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id inCPLD_tb
+	set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME inCPLD_tb -section_id inCPLD_tb
+	set_global_assignment -name EDA_TEST_BENCH_FILE inCPLD_tb.sv -section_id inCPLD_tb
+	set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+	set_global_assignment -name ENABLE_OCT_DONE OFF
+	set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+	set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+	set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+	set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED WITH WEAK PULL-UP"
+	set_global_assignment -name SDC_FILE inCPLD.sdc
+	set_location_assignment PIN_1 -to data_in[0]
+	set_location_assignment PIN_2 -to data_in[1]
+	set_location_assignment PIN_3 -to data_in[2]
+	set_location_assignment PIN_4 -to data_in[3]
+	set_location_assignment PIN_5 -to data_in[4]
+	set_location_assignment PIN_6 -to data_in[5]
+	set_location_assignment PIN_7 -to data_in[6]
+	set_location_assignment PIN_8 -to data_in[7]
+	set_location_assignment PIN_12 -to pclk_50M
+	set_location_assignment PIN_14 -to spi_clk
+	set_location_assignment PIN_15 -to spi_cs
+	set_location_assignment PIN_17 -to miso
+	set_location_assignment PIN_18 -to data_in[8]
+	set_location_assignment PIN_19 -to data_in[9]
+	set_location_assignment PIN_20 -to data_in[10]
+	set_location_assignment PIN_21 -to data_in[11]
+	set_location_assignment PIN_26 -to data_in[12]
+	set_location_assignment PIN_27 -to data_in[13]
+	set_location_assignment PIN_28 -to data_in[14]
+	set_location_assignment PIN_29 -to data_in[15]
+	set_location_assignment PIN_30 -to data_in[16]
+	set_location_assignment PIN_33 -to data_in[17]
+	set_location_assignment PIN_34 -to data_in[18]
+	set_location_assignment PIN_35 -to data_in[19]
+	set_location_assignment PIN_36 -to data_in[20]
+	set_location_assignment PIN_37 -to data_in[21]
+	set_location_assignment PIN_38 -to data_in[22]
+	set_location_assignment PIN_39 -to data_in[23]
+	set_location_assignment PIN_40 -to data_in[24]
+	set_location_assignment PIN_41 -to data_in[25]
+	set_location_assignment PIN_42 -to data_in[26]
+	set_location_assignment PIN_43 -to data_in[27]
+	set_location_assignment PIN_44 -to data_in[28]
+	set_location_assignment PIN_47 -to data_in[29]
+	set_location_assignment PIN_48 -to data_in[30]
+	set_location_assignment PIN_49 -to data_in[31]
+	set_location_assignment PIN_50 -to data_in[32]
+	set_location_assignment PIN_51 -to data_in[33]
+	set_location_assignment PIN_52 -to data_in[34]
+	set_location_assignment PIN_53 -to data_in[35]
+	set_location_assignment PIN_54 -to data_in[36]
+	set_location_assignment PIN_55 -to data_in[37]
+	set_location_assignment PIN_56 -to data_in[38]
+	set_location_assignment PIN_100 -to data_in[74]
+	set_location_assignment PIN_99 -to data_in[73]
+	set_location_assignment PIN_98 -to data_in[72]
+	set_location_assignment PIN_97 -to data_in[71]
+	set_location_assignment PIN_96 -to data_in[70]
+	set_location_assignment PIN_95 -to data_in[69]
+	set_location_assignment PIN_92 -to data_in[68]
+	set_location_assignment PIN_91 -to data_in[67]
+	set_location_assignment PIN_90 -to data_in[66]
+	set_location_assignment PIN_89 -to data_in[65]
+	set_location_assignment PIN_88 -to data_in[64]
+	set_location_assignment PIN_87 -to data_in[63]
+	set_location_assignment PIN_86 -to data_in[62]
+	set_location_assignment PIN_85 -to data_in[61]
+	set_location_assignment PIN_84 -to data_in[60]
+	set_location_assignment PIN_83 -to data_in[59]
+	set_location_assignment PIN_82 -to data_in[58]
+	set_location_assignment PIN_81 -to data_in[57]
+	set_location_assignment PIN_78 -to data_in[56]
+	set_location_assignment PIN_77 -to data_in[55]
+	set_location_assignment PIN_76 -to data_in[54]
+	set_location_assignment PIN_75 -to data_in[53]
+	set_location_assignment PIN_74 -to data_in[52]
+	set_location_assignment PIN_73 -to data_in[51]
+	set_location_assignment PIN_72 -to data_in[50]
+	set_location_assignment PIN_71 -to data_in[49]
+	set_location_assignment PIN_70 -to data_in[48]
+	set_location_assignment PIN_69 -to data_in[47]
+	set_location_assignment PIN_68 -to data_in[46]
+	set_location_assignment PIN_67 -to data_in[45]
+	set_location_assignment PIN_66 -to data_in[44]
+	set_location_assignment PIN_64 -to data_in[43]
+	set_location_assignment PIN_62 -to data_in[42]
+	set_location_assignment PIN_61 -to data_in[41]
+	set_location_assignment PIN_58 -to data_in[40]
+	set_location_assignment PIN_57 -to data_in[39]
+
+	# Including default assignments
+	set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS OFF -family "MAX II"
+	set_global_assignment -name TIMING_ANALYZER_REPORT_WORST_CASE_TIMING_PATHS ON -family "MAX II"
+	set_global_assignment -name TIMING_ANALYZER_CCPP_TRADEOFF_TOLERANCE 0 -family "MAX II"
+	set_global_assignment -name TDC_CCPP_TRADEOFF_TOLERANCE 0 -family "MAX II"
+	set_global_assignment -name TIMING_ANALYZER_DO_CCPP_REMOVAL OFF -family "MAX II"
+	set_global_assignment -name DISABLE_LEGACY_TIMING_ANALYZER OFF -family "MAX II"
+	set_global_assignment -name SYNCHRONIZATION_REGISTER_CHAIN_LENGTH 2 -family "MAX II"
+	set_global_assignment -name OPTIMIZE_HOLD_TIMING "IO PATHS AND MINIMUM TPD PATHS" -family "MAX II"
+	set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING OFF -family "MAX II"
+	set_global_assignment -name AUTO_DELAY_CHAINS ON -family "MAX II"
+
+	set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+	# Commit assignments
+	export_assignments
+
+	# Close project
+	if {$need_to_close_project} {
+		project_close
+	}
+}

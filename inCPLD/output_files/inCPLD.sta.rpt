@@ -1,0 +1,688 @@
+Timing Analyzer report for inCPLD
+Sat Sep  4 13:49:52 2021
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Fmax Summary
+  7. Setup Summary
+  8. Hold Summary
+  9. Recovery Summary
+ 10. Removal Summary
+ 11. Minimum Pulse Width Summary
+ 12. Setup: 'spi_clk'
+ 13. Setup: 'pclk_50M'
+ 14. Hold: 'pclk_50M'
+ 15. Hold: 'spi_clk'
+ 16. Setup Transfers
+ 17. Hold Transfers
+ 18. Report TCCS
+ 19. Report RSKM
+ 20. Unconstrained Paths Summary
+ 21. Clock Status Summary
+ 22. Unconstrained Input Ports
+ 23. Unconstrained Output Ports
+ 24. Unconstrained Input Ports
+ 25. Unconstrained Output Ports
+ 26. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; inCPLD                                              ;
+; Device Family         ; MAX II                                              ;
+; Device Name           ; EPM240T100C5                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------+
+; SDC File List                                     ;
++---------------+--------+--------------------------+
+; SDC File Path ; Status ; Read at                  ;
++---------------+--------+--------------------------+
+; inCPLD.sdc    ; OK     ; Sat Sep  4 13:49:52 2021 ;
++---------------+--------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; pclk_50M   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { pclk_50M } ;
+; spi_clk    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { spi_clk }  ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Fmax Summary                                                                                              ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 105.52 MHz ; 105.52 MHz      ; spi_clk    ;                                                               ;
+; 355.75 MHz ; 304.04 MHz      ; pclk_50M   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------+
+; Setup Summary                     ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; spi_clk  ; -8.477 ; -62.513       ;
+; pclk_50M ; -3.245 ; -6.061        ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Hold Summary                     ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; pclk_50M ; 1.078 ; 0.000         ;
+; spi_clk  ; 2.116 ; 0.000         ;
++----------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++-----------------------------------+
+; Minimum Pulse Width Summary       ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; pclk_50M ; -2.289 ; -2.289        ;
+; spi_clk  ; -2.289 ; -2.289        ;
++----------+--------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Setup: 'spi_clk'                                                                                            ;
++--------+------------------+-----------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+-----------+--------------+-------------+--------------+------------+------------+
+; -8.477 ; cnt[3]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 9.144      ;
+; -8.137 ; cnt[4]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 8.804      ;
+; -8.075 ; cnt[5]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 8.742      ;
+; -7.660 ; cnt[1]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 8.327      ;
+; -7.622 ; cnt[2]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 8.289      ;
+; -7.410 ; cnt[0]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 8.077      ;
+; -6.217 ; cnt[7]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.884      ;
+; -6.217 ; cnt[7]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.884      ;
+; -6.217 ; cnt[7]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.884      ;
+; -6.217 ; cnt[7]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.884      ;
+; -6.217 ; cnt[7]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.884      ;
+; -6.217 ; cnt[7]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.884      ;
+; -6.217 ; cnt[7]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.884      ;
+; -6.217 ; cnt[7]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.884      ;
+; -6.066 ; cnt[4]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.733      ;
+; -6.066 ; cnt[4]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.733      ;
+; -6.066 ; cnt[4]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.733      ;
+; -6.066 ; cnt[4]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.733      ;
+; -6.066 ; cnt[4]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.733      ;
+; -6.066 ; cnt[4]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.733      ;
+; -6.066 ; cnt[4]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.733      ;
+; -6.066 ; cnt[4]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.733      ;
+; -5.855 ; cnt[6]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.522      ;
+; -5.855 ; cnt[6]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.522      ;
+; -5.855 ; cnt[6]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.522      ;
+; -5.855 ; cnt[6]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.522      ;
+; -5.855 ; cnt[6]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.522      ;
+; -5.855 ; cnt[6]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.522      ;
+; -5.855 ; cnt[6]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.522      ;
+; -5.855 ; cnt[6]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.522      ;
+; -5.580 ; cnt[5]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.247      ;
+; -5.580 ; cnt[5]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.247      ;
+; -5.580 ; cnt[5]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.247      ;
+; -5.580 ; cnt[5]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.247      ;
+; -5.580 ; cnt[5]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.247      ;
+; -5.580 ; cnt[5]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.247      ;
+; -5.580 ; cnt[5]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.247      ;
+; -5.580 ; cnt[5]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 6.247      ;
+; -5.276 ; cnt[6]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 5.943      ;
+; -4.300 ; cnt[7]           ; miso~en   ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 4.967      ;
+; -4.149 ; cnt[4]           ; miso~en   ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 4.816      ;
+; -4.018 ; current_state[0] ; cnt[6]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.685      ;
+; -4.018 ; current_state[0] ; cnt[0]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.685      ;
+; -4.018 ; current_state[0] ; cnt[1]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.685      ;
+; -4.018 ; current_state[0] ; cnt[2]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.685      ;
+; -4.018 ; current_state[0] ; cnt[3]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.685      ;
+; -4.018 ; current_state[0] ; cnt[4]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.685      ;
+; -4.018 ; current_state[0] ; cnt[5]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.685      ;
+; -4.018 ; current_state[0] ; cnt[7]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.685      ;
+; -3.938 ; cnt[6]           ; miso~en   ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 4.605      ;
+; -3.675 ; current_state[1] ; cnt[6]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.342      ;
+; -3.675 ; current_state[1] ; cnt[0]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.342      ;
+; -3.675 ; current_state[1] ; cnt[1]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.342      ;
+; -3.675 ; current_state[1] ; cnt[2]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.342      ;
+; -3.675 ; current_state[1] ; cnt[3]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.342      ;
+; -3.675 ; current_state[1] ; cnt[4]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.342      ;
+; -3.675 ; current_state[1] ; cnt[5]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.342      ;
+; -3.675 ; current_state[1] ; cnt[7]    ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 4.342      ;
+; -3.663 ; cnt[5]           ; miso~en   ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 4.330      ;
+; -3.353 ; cnt[0]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 4.020      ;
+; -3.353 ; cnt[0]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 4.020      ;
+; -3.353 ; cnt[0]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 4.020      ;
+; -3.231 ; cnt[1]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.898      ;
+; -3.231 ; cnt[1]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.898      ;
+; -3.231 ; cnt[1]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.898      ;
+; -3.189 ; cnt[3]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.856      ;
+; -3.189 ; cnt[3]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.856      ;
+; -3.189 ; cnt[3]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.856      ;
+; -3.108 ; cnt[2]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.775      ;
+; -3.108 ; cnt[2]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.775      ;
+; -3.108 ; cnt[2]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.775      ;
+; -2.988 ; current_state[1] ; miso~en   ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 3.655      ;
+; -2.920 ; cnt[7]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.587      ;
+; -2.886 ; cnt[0]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.553      ;
+; -2.764 ; cnt[1]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.431      ;
+; -2.763 ; cnt[0]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.430      ;
+; -2.722 ; cnt[3]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.389      ;
+; -2.641 ; cnt[2]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.308      ;
+; -2.641 ; cnt[1]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.308      ;
+; -2.640 ; cnt[0]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.307      ;
+; -2.518 ; cnt[2]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.185      ;
+; -2.518 ; cnt[1]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.185      ;
+; -2.517 ; cnt[0]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 3.184      ;
+; -1.766 ; cnt[3]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 2.433      ;
+; -1.750 ; current_state[0] ; miso~en   ; pclk_50M     ; spi_clk     ; 1.000        ; 0.000      ; 2.417      ;
+; -1.671 ; cnt[1]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 2.338      ;
+; -1.671 ; cnt[2]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 2.338      ;
+; -1.670 ; cnt[0]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 1.000        ; 0.000      ; 2.337      ;
++--------+------------------+-----------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Setup: 'pclk_50M'                                                                                                  ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; -3.245 ; cnt[7]           ; current_state[0] ; spi_clk      ; pclk_50M    ; 1.000        ; 0.000      ; 3.912      ;
+; -3.094 ; cnt[4]           ; current_state[0] ; spi_clk      ; pclk_50M    ; 1.000        ; 0.000      ; 3.761      ;
+; -2.883 ; cnt[6]           ; current_state[0] ; spi_clk      ; pclk_50M    ; 1.000        ; 0.000      ; 3.550      ;
+; -2.816 ; cnt[7]           ; current_state[1] ; spi_clk      ; pclk_50M    ; 1.000        ; 0.000      ; 3.483      ;
+; -2.665 ; cnt[4]           ; current_state[1] ; spi_clk      ; pclk_50M    ; 1.000        ; 0.000      ; 3.332      ;
+; -2.608 ; cnt[5]           ; current_state[0] ; spi_clk      ; pclk_50M    ; 1.000        ; 0.000      ; 3.275      ;
+; -2.454 ; cnt[6]           ; current_state[1] ; spi_clk      ; pclk_50M    ; 1.000        ; 0.000      ; 3.121      ;
+; -2.179 ; cnt[5]           ; current_state[1] ; spi_clk      ; pclk_50M    ; 1.000        ; 0.000      ; 2.846      ;
+; -1.811 ; current_state[1] ; current_state[0] ; pclk_50M     ; pclk_50M    ; 1.000        ; 0.000      ; 2.478      ;
+; -1.806 ; current_state[1] ; current_state[1] ; pclk_50M     ; pclk_50M    ; 1.000        ; 0.000      ; 2.473      ;
+; -1.479 ; current_state[0] ; current_state[1] ; pclk_50M     ; pclk_50M    ; 1.000        ; 0.000      ; 2.146      ;
+; -0.632 ; current_state[0] ; current_state[0] ; pclk_50M     ; pclk_50M    ; 1.000        ; 0.000      ; 1.299      ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Hold: 'pclk_50M'                                                                                                  ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; 1.078 ; current_state[0] ; current_state[0] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 1.299      ;
+; 1.925 ; current_state[0] ; current_state[1] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.146      ;
+; 2.252 ; current_state[1] ; current_state[1] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.473      ;
+; 2.257 ; current_state[1] ; current_state[0] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.478      ;
+; 2.625 ; cnt[5]           ; current_state[1] ; spi_clk      ; pclk_50M    ; 0.000        ; 0.000      ; 2.846      ;
+; 2.900 ; cnt[6]           ; current_state[1] ; spi_clk      ; pclk_50M    ; 0.000        ; 0.000      ; 3.121      ;
+; 3.054 ; cnt[5]           ; current_state[0] ; spi_clk      ; pclk_50M    ; 0.000        ; 0.000      ; 3.275      ;
+; 3.111 ; cnt[4]           ; current_state[1] ; spi_clk      ; pclk_50M    ; 0.000        ; 0.000      ; 3.332      ;
+; 3.262 ; cnt[7]           ; current_state[1] ; spi_clk      ; pclk_50M    ; 0.000        ; 0.000      ; 3.483      ;
+; 3.329 ; cnt[6]           ; current_state[0] ; spi_clk      ; pclk_50M    ; 0.000        ; 0.000      ; 3.550      ;
+; 3.540 ; cnt[4]           ; current_state[0] ; spi_clk      ; pclk_50M    ; 0.000        ; 0.000      ; 3.761      ;
+; 3.691 ; cnt[7]           ; current_state[0] ; spi_clk      ; pclk_50M    ; 0.000        ; 0.000      ; 3.912      ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Hold: 'spi_clk'                                                                                            ;
++-------+------------------+-----------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+-----------+--------------+-------------+--------------+------------+------------+
+; 2.116 ; cnt[0]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117 ; cnt[1]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; cnt[2]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; cnt[7]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.196 ; current_state[0] ; miso~en   ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 2.417      ;
+; 2.212 ; cnt[3]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 2.433      ;
+; 2.249 ; cnt[6]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 2.470      ;
+; 2.260 ; cnt[5]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 2.481      ;
+; 2.262 ; cnt[4]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 2.483      ;
+; 2.948 ; cnt[0]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.169      ;
+; 2.949 ; cnt[1]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; cnt[2]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.170      ;
+; 3.059 ; cnt[0]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.280      ;
+; 3.060 ; cnt[2]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.281      ;
+; 3.060 ; cnt[1]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.281      ;
+; 3.152 ; cnt[3]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.373      ;
+; 3.170 ; cnt[0]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.391      ;
+; 3.171 ; cnt[1]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.392      ;
+; 3.189 ; cnt[6]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.410      ;
+; 3.200 ; cnt[5]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.421      ;
+; 3.281 ; cnt[0]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.502      ;
+; 3.311 ; cnt[5]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.532      ;
+; 3.366 ; cnt[7]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.587      ;
+; 3.434 ; current_state[1] ; miso~en   ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 3.655      ;
+; 3.523 ; cnt[4]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.744      ;
+; 3.523 ; cnt[4]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.744      ;
+; 3.523 ; cnt[4]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.744      ;
+; 3.529 ; cnt[2]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.750      ;
+; 3.529 ; cnt[2]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.750      ;
+; 3.529 ; cnt[2]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.750      ;
+; 3.621 ; cnt[3]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.842      ;
+; 3.621 ; cnt[3]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.842      ;
+; 3.621 ; cnt[3]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.842      ;
+; 3.640 ; cnt[1]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.861      ;
+; 3.640 ; cnt[1]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.861      ;
+; 3.640 ; cnt[1]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.861      ;
+; 3.750 ; cnt[0]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.971      ;
+; 3.750 ; cnt[0]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.971      ;
+; 3.750 ; cnt[0]           ; cnt[7]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 3.971      ;
+; 4.109 ; cnt[5]           ; miso~en   ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 4.330      ;
+; 4.121 ; current_state[1] ; cnt[6]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.342      ;
+; 4.121 ; current_state[1] ; cnt[0]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.342      ;
+; 4.121 ; current_state[1] ; cnt[1]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.342      ;
+; 4.121 ; current_state[1] ; cnt[2]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.342      ;
+; 4.121 ; current_state[1] ; cnt[3]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.342      ;
+; 4.121 ; current_state[1] ; cnt[4]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.342      ;
+; 4.121 ; current_state[1] ; cnt[5]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.342      ;
+; 4.121 ; current_state[1] ; cnt[7]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.342      ;
+; 4.384 ; cnt[6]           ; miso~en   ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 4.605      ;
+; 4.464 ; current_state[0] ; cnt[6]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.685      ;
+; 4.464 ; current_state[0] ; cnt[0]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.685      ;
+; 4.464 ; current_state[0] ; cnt[1]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.685      ;
+; 4.464 ; current_state[0] ; cnt[2]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.685      ;
+; 4.464 ; current_state[0] ; cnt[3]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.685      ;
+; 4.464 ; current_state[0] ; cnt[4]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.685      ;
+; 4.464 ; current_state[0] ; cnt[5]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.685      ;
+; 4.464 ; current_state[0] ; cnt[7]    ; pclk_50M     ; spi_clk     ; 0.000        ; 0.000      ; 4.685      ;
+; 4.595 ; cnt[4]           ; miso~en   ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 4.816      ;
+; 4.746 ; cnt[7]           ; miso~en   ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 4.967      ;
+; 5.054 ; cnt[0]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 5.275      ;
+; 5.091 ; cnt[6]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 5.312      ;
+; 5.378 ; cnt[2]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 5.599      ;
+; 5.475 ; cnt[5]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 5.696      ;
+; 5.699 ; cnt[1]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 5.920      ;
+; 5.930 ; cnt[3]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.151      ;
+; 5.996 ; cnt[4]           ; miso~reg0 ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.217      ;
+; 6.026 ; cnt[5]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.247      ;
+; 6.026 ; cnt[5]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.247      ;
+; 6.026 ; cnt[5]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.247      ;
+; 6.026 ; cnt[5]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.247      ;
+; 6.026 ; cnt[5]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.247      ;
+; 6.301 ; cnt[6]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.522      ;
+; 6.301 ; cnt[6]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.522      ;
+; 6.301 ; cnt[6]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.522      ;
+; 6.301 ; cnt[6]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.522      ;
+; 6.301 ; cnt[6]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.522      ;
+; 6.301 ; cnt[6]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.522      ;
+; 6.512 ; cnt[4]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.733      ;
+; 6.512 ; cnt[4]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.733      ;
+; 6.512 ; cnt[4]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.733      ;
+; 6.512 ; cnt[4]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.733      ;
+; 6.663 ; cnt[7]           ; cnt[6]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.884      ;
+; 6.663 ; cnt[7]           ; cnt[0]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.884      ;
+; 6.663 ; cnt[7]           ; cnt[1]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.884      ;
+; 6.663 ; cnt[7]           ; cnt[2]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.884      ;
+; 6.663 ; cnt[7]           ; cnt[3]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.884      ;
+; 6.663 ; cnt[7]           ; cnt[4]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.884      ;
+; 6.663 ; cnt[7]           ; cnt[5]    ; spi_clk      ; spi_clk     ; 0.000        ; 0.000      ; 6.884      ;
++-------+------------------+-----------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; pclk_50M   ; pclk_50M ; 4        ; 0        ; 0        ; 0        ;
+; spi_clk    ; pclk_50M ; 8        ; 0        ; 0        ; 0        ;
+; pclk_50M   ; spi_clk  ; 18       ; 0        ; 0        ; 0        ;
+; spi_clk    ; spi_clk  ; 177      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; pclk_50M   ; pclk_50M ; 4        ; 0        ; 0        ; 0        ;
+; spi_clk    ; pclk_50M ; 8        ; 0        ; 0        ; 0        ;
+; pclk_50M   ; spi_clk  ; 18       ; 0        ; 0        ; 0        ;
+; spi_clk    ; spi_clk  ; 177      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 76    ; 76   ;
+; Unconstrained Input Port Paths  ; 86    ; 86   ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 2     ; 2    ;
++---------------------------------+-------+------+
+
+
++------------------------------------------+
+; Clock Status Summary                     ;
++----------+----------+------+-------------+
+; Target   ; Clock    ; Type ; Status      ;
++----------+----------+------+-------------+
+; pclk_50M ; pclk_50M ; Base ; Constrained ;
+; spi_clk  ; spi_clk  ; Base ; Constrained ;
++----------+----------+------+-------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                          ;
++-------------+--------------------------------------------------------------------------------------+
+; Input Port  ; Comment                                                                              ;
++-------------+--------------------------------------------------------------------------------------+
+; data_in[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[8]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[9]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[10] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[11] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[12] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[13] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[14] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[15] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[16] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[17] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[18] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[19] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[20] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[21] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[22] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[23] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[24] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[25] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[26] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[27] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[28] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[29] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[30] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[31] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[32] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[33] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[34] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[35] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[36] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[37] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[38] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[39] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[40] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[41] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[42] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[43] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[44] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[45] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[46] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[47] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[48] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[49] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[50] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[51] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[52] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[53] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[54] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[55] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[56] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[57] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[58] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[59] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[60] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[61] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[62] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[63] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[64] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[65] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[66] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[67] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[68] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[69] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[70] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[71] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[72] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[73] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[74] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spi_cs      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; miso        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                          ;
++-------------+--------------------------------------------------------------------------------------+
+; Input Port  ; Comment                                                                              ;
++-------------+--------------------------------------------------------------------------------------+
+; data_in[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[8]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[9]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[10] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[11] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[12] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[13] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[14] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[15] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[16] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[17] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[18] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[19] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[20] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[21] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[22] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[23] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[24] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[25] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[26] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[27] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[28] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[29] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[30] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[31] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[32] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[33] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[34] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[35] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[36] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[37] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[38] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[39] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[40] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[41] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[42] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[43] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[44] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[45] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[46] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[47] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[48] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[49] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[50] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[51] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[52] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[53] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[54] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[55] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[56] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[57] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[58] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[59] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[60] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[61] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[62] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[63] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[64] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[65] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[66] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[67] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[68] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[69] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[70] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[71] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[72] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[73] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; data_in[74] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; spi_cs      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; miso        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sat Sep  4 13:49:51 2021
+Info: Command: quartus_sta inCPLD -c inCPLD
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332104): Reading SDC File: 'inCPLD.sdc'
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name spi_clk spi_clk
+    Info (332105): create_clock -period 1.000 -name pclk_50M pclk_50M
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -8.477
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -8.477             -62.513 spi_clk 
+    Info (332119):    -3.245              -6.061 pclk_50M 
+Info (332146): Worst-case hold slack is 1.078
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.078               0.000 pclk_50M 
+    Info (332119):     2.116               0.000 spi_clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 pclk_50M 
+    Info (332119):    -2.289              -2.289 spi_clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 729 megabytes
+    Info: Processing ended: Sat Sep  4 13:49:52 2021
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

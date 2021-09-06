@@ -1,0 +1,55 @@
+`timescale 1ns/100ps
+
+module PatternDetector_tb;
+
+logic clk;
+logic [7:0] data;
+logic found_pattern, ack, reset_sync;
+
+PatternDetector DUT(.*);
+
+always #10 clk=~clk;
+
+initial begin
+clk = 1'b1;
+data = 'z;
+ack = 1'b0;
+reset_sync = 1'b0;
+
+#20	reset_sync = 1'b1;
+#20	reset_sync = 1'b0;
+
+// Check if detector can filter the worng stream
+#21	data = "b";	
+#20	data = "o";	
+#20	data = "x"; //wrong character "x"
+
+// Check if detector can extract the pattern correctly from "bboab"
+// Check if found_pattern signal appears in the same clock cycle of final "b" arriving
+#20	data = "b";	
+#20	data = "b"; 
+#20	data = "o";	
+#20	data = "a";	
+#20	data = "b";	 
+#20	data = "x";	 
+#1		if (found_pattern == 1)	ack = 1'b1; else ack = 1'b0;
+
+//Check if detector starts the searching on the same cycle ack is first low
+#19	data = "b";
+#1		if (found_pattern == 1)	ack = 1'b1; else ack = 1'b0;		
+#19	data = "o";	
+#20	data = "a";	 
+#20	data = "b"; 
+#20	data = "x"; 
+#1		if (found_pattern == 1)	ack = 1'b1;
+
+////Check if detector starts searching until the ack signal falls back to low
+#19	data = "b";	
+#20	data = "o";	 
+#20	data = "a";	
+#20	data = "b";
+#39	$stop;
+end
+
+
+endmodule

@@ -1,0 +1,11 @@
+Fitter Status : Successful - Sat Sep  4 13:49:50 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : inCPLD
+Top-level Entity Name : inCPLD
+Family : MAX II
+Device : EPM240T100C5
+Timing Models : Final
+Total logic elements : 65 / 240 ( 27 % )
+Total pins : 79 / 80 ( 99 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )
