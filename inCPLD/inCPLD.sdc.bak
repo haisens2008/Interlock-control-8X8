@@ -1,4 +1,4 @@
-## Generated SDC file "outCPLD.out.sdc"
+## Generated SDC file "inCPLD.sdc"
 
 ## Copyright (C) 2018  Intel Corporation. All rights reserved.
 ## Your use of Intel Corporation's design tools, logic functions 
@@ -19,7 +19,7 @@
 ## PROGRAM "Quartus Prime"
 ## VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
-## DATE    "Sun Sep  5 23:05:34 2021"
+## DATE    "Mon Sep  6 21:56:21 2021"
 
 ##
 ## DEVICE  "EPM240T100C5"
@@ -38,6 +38,7 @@ set_time_format -unit ns -decimal_places 3
 # Create Clock
 #**************************************************************
 
+create_clock -name {spi_clk} -period 1.000 -waveform { 0.000 0.500 } [get_ports {spi_clk}]
 create_clock -name {pclk_50M} -period 1.000 -waveform { 0.000 0.500 } [get_ports {pclk_50M}]
 
 

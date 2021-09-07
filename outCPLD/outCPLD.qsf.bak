@@ -134,5 +134,3 @@ set_global_assignment -name SDC_FILE outCPLD.sdc
 set_global_assignment -name ENABLE_OCT_DONE OFF
 set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED WITH WEAK PULL-UP"
-set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
-set_global_assignment -name SYSTEMVERILOG_FILE outCPLD.sv

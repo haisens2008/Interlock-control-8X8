@@ -98,9 +98,9 @@ out[23]                      : 33        : input  : 3.3-V LVTTL       :         
 out[24]                      : 34        : input  : 3.3-V LVTTL       :         : 1         : Y              
 out[25]                      : 35        : input  : 3.3-V LVTTL       :         : 1         : Y              
 out[26]                      : 36        : input  : 3.3-V LVTTL       :         : 1         : Y              
-GND*                         : 37        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 37        :        :                   :         : 1         :                
 out[27]                      : 38        : input  : 3.3-V LVTTL       :         : 1         : Y              
-GND*                         : 39        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 39        :        :                   :         : 1         :                
 out[28]                      : 40        : input  : 3.3-V LVTTL       :         : 1         : Y              
 outP[1]                      : 41        : input  : 3.3-V LVTTL       :         : 1         : Y              
 outP[2]                      : 42        : input  : 3.3-V LVTTL       :         : 1         : Y              
@@ -112,7 +112,7 @@ outP[5]                      : 47        : input  : 3.3-V LVTTL       :         
 outP[6]                      : 48        : input  : 3.3-V LVTTL       :         : 1         : Y              
 outP[7]                      : 49        : input  : 3.3-V LVTTL       :         : 1         : Y              
 outP[8]                      : 50        : input  : 3.3-V LVTTL       :         : 1         : Y              
-GND*                         : 51        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 51        :        :                   :         : 1         :                
 eoutP[8]                     : 52        : output : 3.3-V LVTTL       :         : 2         : Y              
 eoutP[7]                     : 53        : output : 3.3-V LVTTL       :         : 2         : Y              
 eoutP[6]                     : 54        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -123,11 +123,11 @@ eoutP[2]                     : 58        : output : 3.3-V LVTTL       :         
 VCCIO2                       : 59        : power  :                   : 3.3V    : 2         :                
 GNDIO                        : 60        : gnd    :                   :         :           :                
 eoutP[1]                     : 61        : output : 3.3-V LVTTL       :         : 2         : Y              
-GND*                         : 62        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 62        :        :                   :         : 2         :                
 VCCINT                       : 63        : power  :                   : 2.5V/3.3V :           :                
 pclk_50M                     : 64        : input  : 3.3-V LVTTL       :         : 2         : Y              
 GNDINT                       : 65        : gnd    :                   :         :           :                
-GND*                         : 66        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 66        :        :                   :         : 2         :                
 eout[28]                     : 67        : output : 3.3-V LVTTL       :         : 2         : Y              
 eout[27]                     : 68        : output : 3.3-V LVTTL       :         : 2         : Y              
 eout[26]                     : 69        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -149,9 +149,9 @@ eout[13]                     : 84        : output : 3.3-V LVTTL       :         
 eout[12]                     : 85        : output : 3.3-V LVTTL       :         : 2         : Y              
 eout[11]                     : 86        : output : 3.3-V LVTTL       :         : 2         : Y              
 eout[10]                     : 87        : output : 3.3-V LVTTL       :         : 2         : Y              
-GND*                         : 88        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 88        :        :                   :         : 2         :                
 eout[9]                      : 89        : output : 3.3-V LVTTL       :         : 2         : Y              
-GND*                         : 90        :        :                   :         : 2         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 90        :        :                   :         : 2         :                
 eout[8]                      : 91        : output : 3.3-V LVTTL       :         : 2         : Y              
 eout[7]                      : 92        : output : 3.3-V LVTTL       :         : 2         : Y              
 GNDIO                        : 93        : gnd    :                   :         :           :                

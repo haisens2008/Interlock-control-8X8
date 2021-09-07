@@ -11,7 +11,7 @@ enum {IDLE,
 		EXU_ON
 		} current_state, next_state; 								
 
-logic [0:18] cnt;	
+logic [0:31] cnt;	
 logic [1:8] last_outP = 8'b0;
 logic	[1:28] last_out = 28'b0;
 logic check;

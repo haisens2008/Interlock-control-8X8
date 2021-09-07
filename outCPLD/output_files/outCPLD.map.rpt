@@ -1,5 +1,5 @@
 Analysis & Synthesis report for outCPLD
-Sun Sep  5 23:09:00 2021
+Mon Sep  6 21:52:58 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -41,12 +41,12 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sun Sep  5 23:09:00 2021       ;
+; Analysis & Synthesis Status ; Successful - Mon Sep  6 21:52:58 2021       ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name               ; outCPLD                                     ;
 ; Top-level Entity Name       ; outCPLD                                     ;
 ; Family                      ; MAX II                                      ;
-; Total logic elements        ; 150                                         ;
+; Total logic elements        ; 180                                         ;
 ; Total pins                  ; 73                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
@@ -61,6 +61,7 @@ refer to the applicable agreement for further details.
 ; Device                                                           ; EPM240T100C5       ;                    ;
 ; Top-level entity name                                            ; outCPLD            ; outCPLD            ;
 ; Family name                                                      ; MAX II             ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation              ; All                ;                    ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                      ; Off                ; Off                ;
@@ -140,13 +141,13 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                              ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path    ; Library ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------+---------+
-; outCPLD.sv                       ; yes             ; Auto-Found SystemVerilog HDL File  ; /home/ite367/outCPLD/outCPLD.sv ;         ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path    ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------+---------+
+; outCPLD.sv                       ; yes             ; User SystemVerilog HDL File  ; /home/ite367/outCPLD/outCPLD.sv ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------+---------+
 
 
 +--------------------------------------------------------+
@@ -154,33 +155,33 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Total logic elements                        ; 150      ;
-;     -- Combinational with no register       ; 56       ;
+; Total logic elements                        ; 180      ;
+;     -- Combinational with no register       ; 73       ;
 ;     -- Register only                        ; 38       ;
-;     -- Combinational with a register        ; 56       ;
+;     -- Combinational with a register        ; 69       ;
 ;                                             ;          ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 88       ;
-;     -- 3 input functions                    ; 2        ;
-;     -- 2 input functions                    ; 21       ;
+;     -- 4 input functions                    ; 105      ;
+;     -- 3 input functions                    ; 3        ;
+;     -- 2 input functions                    ; 33       ;
 ;     -- 1 input functions                    ; 1        ;
 ;     -- 0 input functions                    ; 0        ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 132      ;
-;     -- arithmetic mode                      ; 18       ;
+;     -- normal mode                          ; 149      ;
+;     -- arithmetic mode                      ; 31       ;
 ;     -- qfbk mode                            ; 0        ;
 ;     -- register cascade mode                ; 0        ;
 ;     -- synchronous clear/load mode          ; 0        ;
 ;     -- asynchronous clear/load mode         ; 0        ;
 ;                                             ;          ;
-; Total registers                             ; 94       ;
-; Total logic cells in carry chains           ; 19       ;
+; Total registers                             ; 107      ;
+; Total logic cells in carry chains           ; 32       ;
 ; I/O pins                                    ; 73       ;
 ; Maximum fan-out node                        ; pclk_50M ;
-; Maximum fan-out                             ; 94       ;
-; Total fan-out                               ; 597      ;
-; Average fan-out                             ; 2.68     ;
+; Maximum fan-out                             ; 107      ;
+; Total fan-out                               ; 705      ;
+; Average fan-out                             ; 2.79     ;
 +---------------------------------------------+----------+
 
 
@@ -189,7 +190,7 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
-; |outCPLD                   ; 150 (150)   ; 94           ; 0          ; 73   ; 0            ; 56 (56)      ; 38 (38)           ; 56 (56)          ; 19 (19)         ; 0 (0)      ; |outCPLD            ; outCPLD     ; work         ;
+; |outCPLD                   ; 180 (180)   ; 107          ; 0          ; 73   ; 0            ; 73 (73)      ; 38 (38)           ; 69 (69)          ; 32 (32)         ; 0 (0)      ; |outCPLD            ; outCPLD     ; work         ;
 +----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -209,7 +210,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 94    ;
+; Total registers                              ; 107   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -225,22 +226,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Sep  5 23:08:49 2021
+    Info: Processing started: Mon Sep  6 21:52:48 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off outCPLD -c outCPLD
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Warning (12125): Using design file outCPLD.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file outCPLD.sv
     Info (12023): Found entity 1: outCPLD File: /home/ite367/outCPLD/outCPLD.sv Line: 1
 Info (12127): Elaborating entity "outCPLD" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at outCPLD.sv(101): truncated value with size 32 to match size of target (19) File: /home/ite367/outCPLD/outCPLD.sv Line: 101
-Info (21057): Implemented 223 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 253 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 37 input pins
     Info (21059): Implemented 36 output pins
-    Info (21061): Implemented 150 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 909 megabytes
-    Info: Processing ended: Sun Sep  5 23:09:00 2021
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:30
+    Info (21061): Implemented 180 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 910 megabytes
+    Info: Processing ended: Mon Sep  6 21:52:58 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:27
 
 

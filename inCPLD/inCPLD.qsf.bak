@@ -144,4 +144,3 @@ set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED WITH WEAK PULL-UP"
 set_global_assignment -name SDC_FILE inCPLD.sdc
 set_global_assignment -name SYSTEMVERILOG_FILE inCPLD.sv
-set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL

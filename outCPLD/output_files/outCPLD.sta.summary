@@ -3,15 +3,15 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'pclk_50M'
-Slack : -7.681
-TNS   : -378.274
+Slack : 6.545
+TNS   : 0.000
 
 Type  : Hold 'pclk_50M'
-Slack : 1.898
+Slack : 1.078
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'pclk_50M'
-Slack : -2.289
-TNS   : -2.289
+Slack : 9.734
+TNS   : 0.000
 
 ------------------------------------------------------------

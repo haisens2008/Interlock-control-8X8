@@ -1,9 +1,9 @@
-Analysis & Synthesis Status : Successful - Sun Sep  5 23:09:00 2021
+Analysis & Synthesis Status : Successful - Mon Sep  6 21:52:58 2021
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : outCPLD
 Top-level Entity Name : outCPLD
 Family : MAX II
-Total logic elements : 150
+Total logic elements : 180
 Total pins : 73
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

@@ -1,5 +1,5 @@
 Assembler report for inCPLD
-Sat Sep  4 13:49:51 2021
+Mon Sep  6 22:03:35 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Sep  4 13:49:51 2021 ;
+; Assembler Status      ; Successful - Mon Sep  6 22:03:34 2021 ;
 ; Revision Name         ; inCPLD                                ;
 ; Top-level Entity Name ; inCPLD                                ;
 ; Family                ; MAX II                                ;
@@ -52,13 +52,13 @@ refer to the applicable agreement for further details.
 +--------+---------+---------------+
 
 
-+------------------------------------------------+
-; Assembler Generated Files                      ;
-+------------------------------------------------+
-; File Name                                      ;
-+------------------------------------------------+
-; /home/ite367/interLock/output_files/inCPLD.pof ;
-+------------------------------------------------+
++---------------------------------------------+
+; Assembler Generated Files                   ;
++---------------------------------------------+
+; File Name                                   ;
++---------------------------------------------+
+; /home/ite367/inCPLD/output_files/inCPLD.pof ;
++---------------------------------------------+
 
 
 +--------------------------------------+
@@ -66,8 +66,8 @@ refer to the applicable agreement for further details.
 +----------------+---------------------+
 ; Option         ; Setting             ;
 +----------------+---------------------+
-; JTAG usercode  ; 0x001863CB          ;
-; Checksum       ; 0x00186653          ;
+; JTAG usercode  ; 0x00185D86          ;
+; Checksum       ; 0x0018617E          ;
 +----------------+---------------------+
 
 
@@ -77,14 +77,13 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Sep  4 13:49:50 2021
+    Info: Processing started: Mon Sep  6 22:03:34 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off inCPLD -c inCPLD
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
-Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 791 megabytes
-    Info: Processing ended: Sat Sep  4 13:49:51 2021
+    Info: Processing ended: Mon Sep  6 22:03:35 2021
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 
