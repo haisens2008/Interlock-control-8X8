@@ -1,0 +1,11 @@
+Fitter Status : Successful - Sun Sep 19 12:07:03 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : outCPLD
+Top-level Entity Name : outCPLD
+Family : MAX II
+Device : EPM570T100C5
+Timing Models : Final
+Total logic elements : 382 / 570 ( 67 % )
+Total pins : 73 / 76 ( 96 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

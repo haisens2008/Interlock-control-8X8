@@ -1,0 +1,459 @@
+Timing Analyzer report for outCPLD
+Sun Sep 19 12:07:06 2021
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Fmax Summary
+  7. Setup Summary
+  8. Hold Summary
+  9. Recovery Summary
+ 10. Removal Summary
+ 11. Minimum Pulse Width Summary
+ 12. Setup: 'pclk_50M'
+ 13. Hold: 'pclk_50M'
+ 14. Setup Transfers
+ 15. Hold Transfers
+ 16. Report TCCS
+ 17. Report RSKM
+ 18. Unconstrained Paths Summary
+ 19. Clock Status Summary
+ 20. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; outCPLD                                             ;
+; Device Family         ; MAX II                                              ;
+; Device Name           ; EPM570T100C5                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------+
+; SDC File List                                     ;
++---------------+--------+--------------------------+
+; SDC File Path ; Status ; Read at                  ;
++---------------+--------+--------------------------+
+; outCPLD.sdc   ; OK     ; Sun Sep 19 12:07:06 2021 ;
++---------------+--------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; pclk_50M   ; Base ; 20.000 ; 50.0 MHz  ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { pclk_50M } ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 58.11 MHz ; 58.11 MHz       ; pclk_50M   ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------+
+; Setup Summary                    ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; pclk_50M ; 2.790 ; 0.000         ;
++----------+-------+---------------+
+
+
++----------------------------------+
+; Hold Summary                     ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; pclk_50M ; 1.640 ; 0.000         ;
++----------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++----------------------------------+
+; Minimum Pulse Width Summary      ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; pclk_50M ; 9.734 ; 0.000         ;
++----------+-------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Setup: 'pclk_50M'                                                                                       ;
++-------+-----------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+---------------+--------------+-------------+--------------+------------+------------+
+; 2.790 ; out[11]   ; eout[1]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 18.424     ;
+; 3.032 ; outP[1]   ; eout[23]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 18.182     ;
+; 3.179 ; outP[1]   ; eout[22]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 18.035     ;
+; 3.374 ; out[5]    ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.840     ;
+; 3.411 ; outP[7]   ; eout[1]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.803     ;
+; 3.488 ; out[5]    ; eout[5]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.726     ;
+; 3.491 ; out[3]    ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.723     ;
+; 3.547 ; out[22]   ; eout[23]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.667     ;
+; 3.605 ; out[3]    ; eout[5]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.609     ;
+; 3.694 ; out[22]   ; eout[22]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.520     ;
+; 3.703 ; outP[2]   ; eout[18]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.511     ;
+; 3.783 ; out[11]   ; eout[4]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.431     ;
+; 3.796 ; out[6]    ; eout[18]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.418     ;
+; 3.824 ; out[2]    ; eout[1]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.390     ;
+; 3.843 ; out[11]   ; eout[2]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.371     ;
+; 3.847 ; outP[4]   ; eout[7]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.367     ;
+; 3.919 ; out[23]   ; eout[23]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.295     ;
+; 3.959 ; outP[4]   ; eout[8]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.255     ;
+; 3.969 ; out[8]    ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.245     ;
+; 3.991 ; outP[4]   ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.223     ;
+; 3.993 ; out[1]    ; eout[1]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.221     ;
+; 4.000 ; outP[2]   ; eout[24]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.214     ;
+; 4.066 ; out[23]   ; eout[22]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.148     ;
+; 4.071 ; outP[6]   ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.143     ;
+; 4.072 ; out[2]    ; eout[18]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.142     ;
+; 4.081 ; outP[2]   ; eout[15]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.133     ;
+; 4.083 ; out[8]    ; eout[5]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.131     ;
+; 4.087 ; out[6]    ; eout[24]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.127     ;
+; 4.105 ; outP[4]   ; eout[5]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.109     ;
+; 4.107 ; outP[2]   ; eout[11]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.107     ;
+; 4.136 ; out[1]    ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.078     ;
+; 4.145 ; out[5]    ; eout[12]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.069     ;
+; 4.148 ; out[9]    ; eout[18]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.066     ;
+; 4.177 ; outP[2]   ; eout[3]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.037     ;
+; 4.189 ; out[15]   ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.025     ;
+; 4.210 ; outP[1]   ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 17.004     ;
+; 4.232 ; out[24]   ; eout[23]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.982     ;
+; 4.237 ; outP[2]   ; eout[23]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.977     ;
+; 4.250 ; out[1]    ; eout[5]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.964     ;
+; 4.252 ; out[18]   ; eout[3]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.962     ;
+; 4.262 ; out[3]    ; eout[12]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.952     ;
+; 4.264 ; out[6]    ; eout[3]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.950     ;
+; 4.289 ; out[4]    ; eout[1]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.925     ;
+; 4.302 ; out[5]    ; eout[3]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.912     ;
+; 4.304 ; outP[7]   ; eout[7]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.910     ;
+; 4.320 ; out[11]   ; eout[7]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.894     ;
+; 4.324 ; outP[1]   ; eout[5]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.890     ;
+; 4.354 ; outP[1]   ; eout[24]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.860     ;
+; 4.362 ; out[2]    ; eout[24]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.852     ;
+; 4.379 ; out[24]   ; eout[22]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.835     ;
+; 4.384 ; outP[2]   ; eout[22]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.830     ;
+; 4.404 ; outP[7]   ; eout[4]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.810     ;
+; 4.405 ; outP[7]   ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.809     ;
+; 4.407 ; outP[8]   ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.807     ;
+; 4.411 ; outP[2]   ; eout[12]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.803     ;
+; 4.419 ; out[3]    ; eout[3]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.795     ;
+; 4.441 ; out[9]    ; eout[24]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.773     ;
+; 4.453 ; outP[2]   ; eout[13]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.761     ;
+; 4.464 ; outP[7]   ; eout[2]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.750     ;
+; 4.468 ; out[3]    ; eout[18]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.746     ;
+; 4.479 ; outP[7]   ; eout[16]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.735     ;
+; 4.484 ; outP[1]   ; eout[15]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.730     ;
+; 4.487 ; outP[3]   ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.727     ;
+; 4.495 ; out[11]   ; eout[16]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.719     ;
+; 4.510 ; out[8]    ; eout[7]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.704     ;
+; 4.516 ; outP[2]   ; eout[9]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.698     ;
+; 4.524 ; out[16]   ; eout[17]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.690     ;
+; 4.528 ; out[18]   ; eout[13]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.686     ;
+; 4.539 ; outP[3]   ; eout[23]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.675     ;
+; 4.539 ; out[2]    ; eout[3]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.675     ;
+; 4.540 ; out[6]    ; eout[13]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.674     ;
+; 4.583 ; out[11]   ; eout[15]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.631     ;
+; 4.585 ; outP[7]   ; eout[5]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.629     ;
+; 4.585 ; outP[1]   ; eout[11]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.629     ;
+; 4.587 ; outP[8]   ; eout[5]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.627     ;
+; 4.603 ; out[6]    ; eout[9]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.611     ;
+; 4.609 ; out[5]    ; eout[23]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.605     ;
+; 4.613 ; outP[4]   ; eout[26]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.601     ;
+; 4.618 ; out[9]    ; eout[3]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.596     ;
+; 4.622 ; out[8]    ; eout[8]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.592     ;
+; 4.635 ; outP[2]   ; eout[7]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.579     ;
+; 4.674 ; out[10]   ; eout[7]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.540     ;
+; 4.678 ; outP[6]   ; eout[1]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.536     ;
+; 4.681 ; out[12]   ; eout[15]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.533     ;
+; 4.684 ; out[11]   ; eout[11]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.530     ;
+; 4.686 ; outP[3]   ; eout[22]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.528     ;
+; 4.707 ; out[12]   ; eout[11]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.507     ;
+; 4.719 ; outP[6]   ; eout[16]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.495     ;
+; 4.726 ; out[3]    ; eout[23]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.488     ;
+; 4.740 ; out[8]    ; eout[12]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.474     ;
+; 4.747 ; outP[2]   ; eout[8]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.467     ;
+; 4.762 ; outP[4]   ; eout[12]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.452     ;
+; 4.765 ; out[3]    ; eout[24]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.449     ;
+; 4.771 ; outP[7]   ; eout[12]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.443     ;
+; 4.773 ; outP[1]   ; eout[18]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.441     ;
+; 4.773 ; outP[8]   ; eout[12]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.441     ;
+; 4.778 ; out[13]   ; eout[11]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.436     ;
+; 4.786 ; out[10]   ; eout[8]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.428     ;
+; 4.794 ; out[20]   ; eout[7]~reg0  ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.420     ;
+; 4.815 ; out[2]    ; eout[13]~reg0 ; pclk_50M     ; pclk_50M    ; 20.000       ; 3.547      ; 16.399     ;
++-------+-----------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Hold: 'pclk_50M'                                                                                                  ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; 1.640 ; eoutP[1]~reg0    ; eoutP[1]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 1.861      ;
+; 1.678 ; cnt[20]          ; cnt[20]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 1.899      ;
+; 1.748 ; current_state[0] ; current_state[1] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 1.969      ;
+; 1.899 ; eoutP[5]~reg0    ; eoutP[5]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.120      ;
+; 1.917 ; cnt[31]          ; cnt[31]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.138      ;
+; 1.917 ; cnt[28]          ; cnt[28]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.138      ;
+; 1.918 ; eoutP[3]~reg0    ; eoutP[3]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.139      ;
+; 1.918 ; cnt[2]           ; cnt[2]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.139      ;
+; 1.920 ; cnt[9]           ; cnt[9]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.141      ;
+; 1.927 ; cnt[14]          ; cnt[14]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.148      ;
+; 2.127 ; cnt[10]          ; cnt[10]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.348      ;
+; 2.135 ; cnt[15]          ; cnt[15]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.356      ;
+; 2.141 ; cnt[30]          ; cnt[30]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.362      ;
+; 2.141 ; cnt[23]          ; cnt[23]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.362      ;
+; 2.143 ; cnt[18]          ; cnt[18]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.364      ;
+; 2.145 ; cnt[21]          ; cnt[21]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.366      ;
+; 2.145 ; cnt[19]          ; cnt[19]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.366      ;
+; 2.145 ; cnt[1]           ; cnt[1]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.366      ;
+; 2.154 ; cnt[27]          ; cnt[27]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.375      ;
+; 2.155 ; eout[2]~reg0     ; eout[2]~reg0     ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.376      ;
+; 2.230 ; current_state[1] ; current_state[1] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; eoutP[6]~reg0    ; eoutP[6]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; eoutP[2]~reg0    ; eoutP[2]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.451      ;
+; 2.231 ; eoutP[8]~reg0    ; eoutP[8]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; eoutP[4]~reg0    ; eoutP[4]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; cnt[29]          ; cnt[29]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.452      ;
+; 2.232 ; cnt[17]          ; cnt[17]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.453      ;
+; 2.232 ; cnt[4]           ; cnt[4]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.453      ;
+; 2.241 ; cnt[8]           ; cnt[8]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.462      ;
+; 2.249 ; cnt[22]          ; cnt[22]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.470      ;
+; 2.250 ; cnt[25]          ; cnt[25]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.471      ;
+; 2.250 ; cnt[13]          ; cnt[13]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.471      ;
+; 2.250 ; cnt[11]          ; cnt[11]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.471      ;
+; 2.251 ; cnt[24]          ; cnt[24]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.472      ;
+; 2.251 ; cnt[0]           ; cnt[0]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.472      ;
+; 2.257 ; cnt[5]           ; cnt[5]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.478      ;
+; 2.258 ; cnt[12]          ; cnt[12]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.479      ;
+; 2.277 ; cnt[26]          ; cnt[26]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.498      ;
+; 2.312 ; eoutP[7]~reg0    ; eoutP[7]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.533      ;
+; 2.397 ; cnt[3]           ; cnt[3]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.618      ;
+; 2.632 ; cnt[7]           ; cnt[7]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 2.853      ;
+; 2.868 ; eout[1]~reg0     ; eout[1]~reg0     ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.089      ;
+; 2.878 ; eout[28]~reg0    ; eout[28]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.099      ;
+; 2.879 ; eout[5]~reg0     ; eout[5]~reg0     ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.100      ;
+; 2.900 ; eout[6]~reg0     ; eout[6]~reg0     ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.121      ;
+; 3.021 ; check            ; current_state[1] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.242      ;
+; 3.047 ; eout[11]~reg0    ; eout[11]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.268      ;
+; 3.118 ; eout[18]~reg0    ; eout[18]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.339      ;
+; 3.120 ; eout[23]~reg0    ; eout[23]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.341      ;
+; 3.170 ; eout[19]~reg0    ; eout[19]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.391      ;
+; 3.225 ; eout[20]~reg0    ; eout[20]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.446      ;
+; 3.320 ; check            ; current_state[0] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.541      ;
+; 3.379 ; eout[22]~reg0    ; eout[22]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.600      ;
+; 3.379 ; cnt[6]           ; cnt[6]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.600      ;
+; 3.489 ; last_outP[1]     ; check            ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.710      ;
+; 3.507 ; eout[25]~reg0    ; eout[25]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.728      ;
+; 3.533 ; eout[12]~reg0    ; eout[12]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.754      ;
+; 3.550 ; out[22]          ; last_out[22]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.318      ;
+; 3.554 ; eout[3]~reg0     ; eout[3]~reg0     ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.775      ;
+; 3.612 ; eout[4]~reg0     ; eout[4]~reg0     ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.833      ;
+; 3.642 ; out[21]          ; last_out[21]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.410      ;
+; 3.680 ; eout[17]~reg0    ; eout[17]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 3.901      ;
+; 3.832 ; out[10]          ; last_out[10]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.600      ;
+; 3.850 ; eout[13]~reg0    ; eout[13]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.071      ;
+; 3.952 ; cnt[16]          ; cnt[16]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.173      ;
+; 4.018 ; last_outP[7]     ; check            ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.239      ;
+; 4.062 ; eout[16]~reg0    ; eout[16]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.283      ;
+; 4.071 ; current_state[1] ; cnt[11]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.292      ;
+; 4.073 ; current_state[1] ; cnt[2]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.294      ;
+; 4.074 ; current_state[1] ; cnt[12]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.295      ;
+; 4.074 ; current_state[1] ; cnt[5]           ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.295      ;
+; 4.077 ; current_state[1] ; cnt[13]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.298      ;
+; 4.111 ; cnt[0]           ; current_state[0] ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.332      ;
+; 4.124 ; outP[8]          ; eoutP[8]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.892      ;
+; 4.159 ; current_state[1] ; cnt[19]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.380      ;
+; 4.160 ; current_state[1] ; cnt[24]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.381      ;
+; 4.160 ; current_state[1] ; cnt[22]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.381      ;
+; 4.162 ; out[27]          ; last_out[27]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.930      ;
+; 4.168 ; current_state[1] ; cnt[25]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.389      ;
+; 4.169 ; current_state[1] ; cnt[21]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.390      ;
+; 4.170 ; current_state[1] ; cnt[18]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.391      ;
+; 4.171 ; current_state[1] ; cnt[23]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.392      ;
+; 4.174 ; out[25]          ; last_out[25]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.942      ;
+; 4.178 ; out[28]          ; last_out[28]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.946      ;
+; 4.186 ; last_outP[3]     ; check            ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.407      ;
+; 4.188 ; outP[5]          ; eout[7]~reg0     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.956      ;
+; 4.202 ; out[23]          ; last_out[23]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 5.970      ;
+; 4.226 ; last_out[1]      ; check            ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.447      ;
+; 4.268 ; eout[9]~reg0     ; eout[9]~reg0     ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.489      ;
+; 4.277 ; current_state[1] ; eout[16]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.498      ;
+; 4.277 ; current_state[1] ; eout[11]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.498      ;
+; 4.348 ; outP[3]          ; last_outP[3]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 6.116      ;
+; 4.364 ; out[4]           ; last_out[4]      ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 6.132      ;
+; 4.406 ; out[18]          ; last_out[18]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 6.174      ;
+; 4.413 ; current_state[0] ; eout[16]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.634      ;
+; 4.413 ; current_state[0] ; eout[11]~reg0    ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.634      ;
+; 4.446 ; cnt[27]          ; cnt[26]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.667      ;
+; 4.450 ; out[13]          ; last_out[13]     ; pclk_50M     ; pclk_50M    ; 0.000        ; 3.547      ; 6.218      ;
+; 4.456 ; last_out[3]      ; check            ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.677      ;
+; 4.500 ; current_state[1] ; cnt[10]          ; pclk_50M     ; pclk_50M    ; 0.000        ; 0.000      ; 4.721      ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; pclk_50M   ; pclk_50M ; 8156     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; pclk_50M   ; pclk_50M ; 8156     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 0     ; 0    ;
+; Unconstrained Output Port Paths ; 0     ; 0    ;
++---------------------------------+-------+------+
+
+
++------------------------------------------+
+; Clock Status Summary                     ;
++----------+----------+------+-------------+
+; Target   ; Clock    ; Type ; Status      ;
++----------+----------+------+-------------+
+; pclk_50M ; pclk_50M ; Base ; Constrained ;
++----------+----------+------+-------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sun Sep 19 12:07:05 2021
+Info: Command: quartus_sta outCPLD -c outCPLD
+Info: qsta_default_script.tcl version: #1
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332104): Reading SDC File: 'outCPLD.sdc'
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Info (332146): Worst-case setup slack is 2.790
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     2.790               0.000 pclk_50M 
+Info (332146): Worst-case hold slack is 1.640
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.640               0.000 pclk_50M 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.734
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.734               0.000 pclk_50M 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332101): Design is fully constrained for setup requirements
+Info (332101): Design is fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 731 megabytes
+    Info: Processing ended: Sun Sep 19 12:07:06 2021
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
