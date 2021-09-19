@@ -16,14 +16,14 @@ logic [1:8] last_outP = 8'b0;
 logic [1:28] last_out = 28'b0;
 logic check;
 
-logic [6:0] g1 = {outP[8] & out[22], outP[7] & out[16], outP[6] & out[11], outP[5] & out[7], outP[4] & out[4], outP[3] & out[2], outP[2] & out[1]};
-logic [6:0] g2 = {outP[8] & out[23], outP[7] & out[17], outP[6] & out[12], outP[5] & out[8], outP[4] & out[5], outP[3] & out[3], 						outP[1] & out[1]};
-logic [6:0] g3 = {outP[8] & out[24], outP[7] & out[18], outP[6] & out[13], outP[5] & out[9], outP[4] & out[6], 			 			outP[2] & out[3], outP[1] & out[2]};
-logic [6:0] g4 = {outP[8] & out[25], outP[7] & out[19], outP[6] & out[14], outP[5] & out[10],			 			outP[3] & out[6], outP[2] & out[5], outP[1] & out[4]};
-logic [6:0] g5 = {outP[8] & out[26], outP[7] & out[20], outP[6] & out[15], 			 			outP[4] & out[10],outP[3] & out[9], outP[2] & out[8], outP[1] & out[7]};
-logic [6:0] g6 = {outP[8] & out[27], outP[7] & out[21], 			 				outP[5] & out[15],outP[4] & out[14],outP[3] & out[13],outP[2] & out[12],outP[1] & out[11]};
-logic [6:0]	g7 = {outP[8] & out[28], 						  outP[6] & out[21], outP[6] & out[20],outP[4] & out[19],outP[3] & out[16],outP[3] & out[15],outP[1] & out[14]};
-logic [6:0]	g8 = {						 outP[7] & out[28], outP[6] & out[27], outP[5] & out[26],outP[4] & out[25],outP[3] & out[24],outP[2] & out[23],outP[1] & out[22]};
+logic [6:0] g1 = 7'b0000000;
+logic [6:0] g2 = 7'b0000000;
+logic [6:0] g3 = 7'b0000000;
+logic [6:0] g4 = 7'b0000000;
+logic [6:0] g5 = 7'b0000000;
+logic [6:0] g6 = 7'b0000000;
+logic [6:0] g7 = 7'b0000000;
+logic [6:0] g8 = 7'b0000000;
 	
 always_ff @(posedge pclk_50M)
 		current_state <= next_state;
@@ -37,7 +37,9 @@ always_comb begin
 				if (!check)												next_state = EXU_OFF;
 				else														next_state = IDLE;
 
-		EXU_OFF:															next_state = WAIT;
+		EXU_OFF:															
+				if (!check)												next_state = EXU_OFF;											
+				else														next_state = WAIT;
 		
 		WAIT:	
 				if (!check)												next_state = EXU_OFF;
@@ -45,7 +47,9 @@ always_comb begin
 				else														next_state = WAIT;
 				
 						
-		EXU_ON:															next_state = IDLE;
+		EXU_ON:
+				if (!check)												next_state = EXU_OFF;											
+				else														next_state = IDLE;
 		
 		default:															next_state = IDLE;
 	endcase
@@ -57,6 +61,15 @@ always_ff @(posedge pclk_50M)	begin
 			last_outP <= outP;
 			last_out	<=	out;
 			check <= (outP == last_outP) & (out == last_out);
+			g1 = {outP[8] & out[22], outP[7] & out[16], outP[6] & out[11], outP[5] & out[7], outP[4] & out[4], outP[3] & out[2], outP[2] & out[1]};
+			g2 = {outP[8] & out[23], outP[7] & out[17], outP[6] & out[12], outP[5] & out[8], outP[4] & out[5], outP[3] & out[3], 						outP[1] & out[1]};
+			g3 = {outP[8] & out[24], outP[7] & out[18], outP[6] & out[13], outP[5] & out[9], outP[4] & out[6], 			 			outP[2] & out[3], outP[1] & out[2]};
+			g4 = {outP[8] & out[25], outP[7] & out[19], outP[6] & out[14], outP[5] & out[10],			 			outP[3] & out[6], outP[2] & out[5], outP[1] & out[4]};
+			g5 = {outP[8] & out[26], outP[7] & out[20], outP[6] & out[15], 			 			outP[4] & out[10],outP[3] & out[9], outP[2] & out[8], outP[1] & out[7]};
+			g6 = {outP[8] & out[27], outP[7] & out[21], 			 				outP[5] & out[15],outP[4] & out[14],outP[3] & out[13],outP[2] & out[12],outP[1] & out[11]};
+			g7 = {outP[8] & out[28], 						  outP[6] & out[21], outP[6] & out[20],outP[4] & out[19],outP[3] & out[16],outP[3] & out[15],outP[1] & out[14]};
+			g8 = {						 outP[7] & out[28], outP[6] & out[27], outP[5] & out[26],outP[4] & out[25],outP[3] & out[24],outP[2] & out[23],outP[1] & out[22]};
+
 		end
 								
 	case (next_state)
