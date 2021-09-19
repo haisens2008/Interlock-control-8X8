@@ -35,21 +35,21 @@ always_comb begin
 	case (current_state)
 						
 		IDLE:	
-				if (!check)												next_state = EXU_OFF;
+				if (!check)													next_state = EXU_OFF;
 				else														next_state = IDLE;
 
 		EXU_OFF:															
-				if (!check)												next_state = EXU_OFF;											
+				if (!check)													next_state = EXU_OFF;											
 				else														next_state = WAIT;
 		
 		WAIT:	
-				if (!check)												next_state = EXU_OFF;
-				else if (cnt == delay) 								next_state = EXU_ON;
+				if (!check)													next_state = EXU_OFF;
+				else if (cnt == delay) 										next_state = EXU_ON;
 				else														next_state = WAIT;
 				
 						
 		EXU_ON:
-				if (!check)												next_state = EXU_OFF;											
+				if (!check)													next_state = EXU_OFF;											
 				else														next_state = IDLE;
 		
 		default:															next_state = IDLE;
@@ -90,7 +90,7 @@ always_ff @(posedge pclk_50M)	begin
 						
 						if (~(outP[1] ^ outP[2]))  eout[1] <= out[1] & 1'b0; 
 						if (~(outP[1] ^ outP[3]))  eout[2] <= out[2] & 1'b0; 
-						if (~(outP[2] ^ outP[3])) 	eout[3] <= out[3] & 1'b0; 
+						if (~(outP[2] ^ outP[3]))  eout[3] <= out[3] & 1'b0; 
 						if (~(outP[1] ^ outP[4]))  eout[4] <= out[4] & 1'b0; 
 						if (~(outP[2] ^ outP[4]))  eout[5] <= out[5] & 1'b0;
 						if (~(outP[3] ^ outP[4]))  eout[6] <= out[6] & 1'b0; 
@@ -124,62 +124,62 @@ always_ff @(posedge pclk_50M)	begin
 								if (outP[3] == 1'b1) 	eout[2] 	<= out[2] 	& 	1'b0;
 								if (outP[4] == 1'b1) 	eout[4] 	<= out[4] 	& 	1'b0;
 								if (outP[5] == 1'b1) 	eout[7] 	<= out[7]	&	1'b0;
-								if (outP[6] == 1'b1) 	eout[11] <= out[11] 	&	1'b0;
-								if (outP[7] == 1'b1) 	eout[16] <= out[16] 	& 	1'b0;
-								if (outP[8] == 1'b1) 	eout[22] <= out[22] 	& 	1'b0;
+								if (outP[6] == 1'b1) 	eout[11] 	<= out[11] 	&	1'b0;
+								if (outP[7] == 1'b1) 	eout[16] 	<= out[16] 	& 	1'b0;
+								if (outP[8] == 1'b1) 	eout[22] 	<= out[22] 	& 	1'b0;
 							end else
 							if ((g1 & 7'b0000011) == 7'b0000010) begin
-								if (outP[2] == 1'b1) 	eout[1] <= out[1] & 1'b0;	
+								if (outP[2] == 1'b1) 	eout[1] 	<= out[1] & 1'b0;	
 								eout[2] <= out[2] & 1'b1;
 								if (outP[4] == 1'b1) 	eout[4] 	<= out[4] 	&	1'b0;
 								if (outP[5] == 1'b1) 	eout[7] 	<= out[7] 	&	1'b0;
-								if (outP[6] == 1'b1) 	eout[11] <= out[11] 	&	1'b0;
-								if (outP[7] == 1'b1) 	eout[16] <= out[16] 	&	1'b0;
-								if (outP[8] == 1'b1) 	eout[22] <= out[22] 	&	1'b0;
+								if (outP[6] == 1'b1) 	eout[11]	<= out[11] 	&	1'b0;
+								if (outP[7] == 1'b1) 	eout[16] 	<= out[16] 	&	1'b0;
+								if (outP[8] == 1'b1) 	eout[22] 	<= out[22] 	&	1'b0;
 							end else
 							if ((g1 & 7'b0000111) == 7'b0000100) begin
-								if (outP[2] == 1'b1)		eout[1]	<= out[1] 	& 	1'b0;	
-								if (outP[3] == 1'b1)		eout[2] 	<= out[2] 	& 	1'b0;	
+								if (outP[2] == 1'b1)	eout[1]		<= out[1] 	& 	1'b0;	
+								if (outP[3] == 1'b1)	eout[2] 	<= out[2] 	& 	1'b0;	
 								eout[4] <= out[4] & 1'b1;
-								if (outP[5] == 1'b1)		eout[7] 	<= out[7] 	& 	1'b0;
-								if (outP[6] == 1'b1) 	eout[11] <= out[11] 	& 	1'b0;
-								if (outP[7] == 1'b1) 	eout[16] <= out[16] 	& 	1'b0;
-								if (outP[8] == 1'b1) 	eout[22] <= out[22] 	& 	1'b0;
+								if (outP[5] == 1'b1)	eout[7] 	<= out[7] 	& 	1'b0;
+								if (outP[6] == 1'b1) 	eout[11]	<= out[11] 	& 	1'b0;
+								if (outP[7] == 1'b1) 	eout[16] 	<= out[16] 	& 	1'b0;
+								if (outP[8] == 1'b1) 	eout[22] 	<= out[22] 	& 	1'b0;
 							end else
 							if ((g1 & 7'b0001111) == 7'b0001000) begin
 								if (outP[2] == 1'b1) 	eout[1] 	<= out[1] 	& 	1'b0;	
 								if (outP[3] == 1'b1) 	eout[2] 	<= out[2] 	& 	1'b0;	
-								if (outP[4] == 1'b1) 	 eout[4] <= out[4] 	& 	1'b0;
+								if (outP[4] == 1'b1) 	 eout[4] 	<= out[4] 	& 	1'b0;
 								eout[7] <= out[7] & 1'b1;
-								if (outP[6] == 1'b1) 	eout[11] <= out[11] 	& 	1'b0;
-								if (outP[7] == 1'b1) 	eout[16] <= out[16] 	& 	1'b0;
-								if (outP[8] == 1'b1) 	eout[22] <= out[22]	& 	1'b0;
+								if (outP[6] == 1'b1) 	eout[11] 	<= out[11] 	& 	1'b0;
+								if (outP[7] == 1'b1) 	eout[16] 	<= out[16] 	& 	1'b0;
+								if (outP[8] == 1'b1) 	eout[22] 	<= out[22]	& 	1'b0;
 							end else
 							if ((g1 & 7'b0011111) == 7'b0010000) begin
-								if (outP[2] == 1'b1)		eout[1] 	<= out[1] 	& 	1'b0;	
+								if (outP[2] == 1'b1)	eout[1] 	<= out[1] 	& 	1'b0;	
 								if (outP[3] == 1'b1) 	eout[2] 	<= out[2] 	& 	1'b0;	
 								if (outP[4] == 1'b1)  	eout[4] 	<= out[4] 	& 	1'b0;
 								if (outP[5] == 1'b1) 	eout[7] 	<= out[7] 	& 	1'b0;
 								eout[11] <= out[11] & 1'b1;
-								if (outP[7]  == 1'b1) 	eout[16] <= out[16] 	& 	1'b0;
-								if (outP[8]  == 1'b1) 	eout[22] <= out[22] 	& 	1'b0;
+								if (outP[7]  == 1'b1) 	eout[16] 	<= out[16] 	& 	1'b0;
+								if (outP[8]  == 1'b1) 	eout[22] 	<= out[22] 	& 	1'b0;
 							end else
 							if ((g1 & 7'b0111111) == 7'b0100000) begin
 								if (outP[2] == 1'b1) 	eout[1] 	<= out[1] 	& 	1'b0;	
-								if (outP[3] == 1'b1)		eout[2] 	<= out[2] 	& 	1'b0;	
+								if (outP[3] == 1'b1)		eout[2] <= out[2] 	& 	1'b0;	
 								if (outP[4] == 1'b1)  	eout[4] 	<= out[4] 	& 	1'b0;
 								if (outP[5] == 1'b1) 	eout[7] 	<= out[7] 	& 	1'b0;
-								if (outP[6] == 1'b1) 	eout[11] <= out[11] 	& 	1'b0;
+								if (outP[6] == 1'b1) 	eout[11] 	<= out[11] 	& 	1'b0;
 								eout[16] <= out[16] & 1'b1;
-								if (outP[8] == 1'b1) 	eout[22] <= out[22] 	& 	1'b0;
+								if (outP[8] == 1'b1) 	eout[22] 	<= out[22] 	& 	1'b0;
 							end else
 							if ((g1 & 7'b1111111) == 7'b1000000) begin
 								if (outP[2] == 1'b1) 	eout[1] 	<= out[1] 	& 	1'b0;	
 								if (outP[3] == 1'b1) 	eout[2] 	<= out[2] 	& 	1'b0;	
 								if (outP[4] == 1'b1)  	eout[4] 	<= out[4] 	& 	1'b0;
 								if (outP[5] == 1'b1) 	eout[7] 	<= out[7] 	& 	1'b0;
-								if (outP[6] == 1'b1) 	eout[11] <= out[11] 	& 	1'b0;
-								if (outP[7] == 1'b1) 	eout[16] <= out[16] 	& 	1'b0;
+								if (outP[6] == 1'b1) 	eout[11] 	<= out[11] 	& 	1'b0;
+								if (outP[7] == 1'b1) 	eout[16] 	<= out[16] 	& 	1'b0;
 								eout[22] <= out[22] & 1'b1;
 							end
 
@@ -190,36 +190,36 @@ always_ff @(posedge pclk_50M)	begin
 								if (outP[3] == 1'b1) 	eout[3] 	<= out[3] 	& 1'b0;
 								if (outP[4] == 1'b1) 	eout[5] 	<= out[5] 	& 1'b0;
 								if (outP[5] == 1'b1) 	eout[8] 	<= out[8] 	& 1'b0;
-								if (outP[6] == 1'b1) 	eout[12] <= out[12] 	& 1'b0;
-								if (outP[7] == 1'b1) 	eout[17] <= out[17] 	& 1'b0;
-								if (outP[8] == 1'b1) 	eout[23] <= out[23]	& 1'b0;
+								if (outP[6] == 1'b1) 	eout[12] 	<= out[12] 	& 1'b0;
+								if (outP[7] == 1'b1) 	eout[17] 	<= out[17] 	& 1'b0;
+								if (outP[8] == 1'b1) 	eout[23] 	<= out[23]	& 1'b0;
 							end else
 							if ((g2 & 7'b0000011) == 7'b0000010) begin
 								if (outP[1] == 1'b1) 	eout[1] 	<= out[1] 	& 1'b0;
 								eout[3] <= out[3] & 1'b1;
 								if (outP[4] == 1'b1) 	eout[5] 	<= out[5] 	& 1'b0;
 								if (outP[5] == 1'b1) 	eout[8] 	<= out[8] 	& 1'b0;
-								if (outP[6] == 1'b1) 	eout[12] <= out[12] 	& 1'b0;
-								if (outP[7] == 1'b1) 	eout[17] <= out[17] 	& 1'b0;
-								if (outP[8] == 1'b1) 	eout[23] <= out[23] 	& 1'b0;
+								if (outP[6] == 1'b1) 	eout[12]	<= out[12] 	& 1'b0;
+								if (outP[7] == 1'b1) 	eout[17] 	<= out[17] 	& 1'b0;
+								if (outP[8] == 1'b1) 	eout[23] 	<= out[23] 	& 1'b0;
 							end else
 							if ((g2 & 7'b0000111) == 7'b0000100) begin
 								if (outP[1] == 1'b1) 	eout[1] 	<= out[1] 	& 1'b0;
 								if (outP[3] == 1'b1) 	eout[3] 	<= out[3] 	& 1'b0;
 								eout[5] <= out[5] & 1'b1;
 								if (outP[5] == 1'b1) 	eout[8] 	<= out[8] 	& 1'b0;
-								if (outP[6] == 1'b1) 	eout[12] <= out[12]	& 1'b0;
-								if (outP[7] == 1'b1) 	eout[17] <= out[17] 	& 1'b0;
-								if (outP[8] == 1'b1) 	eout[23] <= out[23] 	& 1'b0;
+								if (outP[6] == 1'b1) 	eout[12] 	<= out[12]	& 1'b0;
+								if (outP[7] == 1'b1) 	eout[17] 	<= out[17] 	& 1'b0;
+								if (outP[8] == 1'b1) 	eout[23] 	<= out[23] 	& 1'b0;
 							end else
 							if ((g2 & 7'b0001111) == 7'b0001000) begin
 								if (outP[1] == 1'b1) 	eout[1] 	<= out[1] 	& 1'b0;
 								if (outP[3] == 1'b1) 	eout[3] 	<= out[3] 	& 1'b0;
 								if (outP[4] == 1'b1) 	eout[5] 	<= out[5] 	& 1'b0;
 								eout[8] <= out[8] & 1'b1;
-								if (outP[6] == 1'b1) 	eout[12] <= out[12] 	& 1'b0;
-								if (outP[7] == 1'b1) 	eout[17] <= out[17] 	& 1'b0;
-								if (outP[8] == 1'b1) 	eout[23] <= out[23] 	& 1'b0;
+								if (outP[6] == 1'b1) 	eout[12] 	<= out[12] 	& 1'b0;
+								if (outP[7] == 1'b1) 	eout[17] 	<= out[17] 	& 1'b0;
+								if (outP[8] == 1'b1) 	eout[23] 	<= out[23] 	& 1'b0;
 							end else
 							if ((g2 & 7'b0011111) == 7'b0010000) begin
 								if (outP[1] == 1'b1) 	eout[1] 	<= out[1] 	& 1'b0;
@@ -227,25 +227,25 @@ always_ff @(posedge pclk_50M)	begin
 								if (outP[4] == 1'b1) 	eout[5] 	<= out[5] 	& 1'b0;
 								if (outP[5] == 1'b1) 	eout[8] 	<= out[8] 	& 1'b0;
 								eout[12] <= out[12] & 1'b1;
-								if (outP[7] == 1'b1) 	eout[17] <= out[17] 	& 1'b0;
-								if (outP[8] == 1'b1) 	eout[23] <= out[23] 	& 1'b0;
+								if (outP[7] == 1'b1) 	eout[17] 	<= out[17] 	& 1'b0;
+								if (outP[8] == 1'b1) 	eout[23] 	<= out[23] 	& 1'b0;
 							end else
 							if ((g2 & 7'b0111111) == 7'b0100000) begin
 								if (outP[1] == 1'b1) 	eout[1] 	<= out[1] 	& 1'b0;
 								if (outP[3] == 1'b1) 	eout[3] 	<= out[3] 	& 1'b0;
 								if (outP[4] == 1'b1) 	eout[5] 	<= out[5] 	& 1'b0;
 								if (outP[5] == 1'b1) 	eout[8] 	<= out[8] 	& 1'b0;
-								if (outP[6] == 1'b1) 	eout[12] <= out[12] 	& 1'b0;
+								if (outP[6] == 1'b1) 	eout[12] 	<= out[12] 	& 1'b0;
 								eout[17] <= out[17] & 1'b1;
-								if (outP[8] == 1'b1) eout[23] 	<= out[23] 	& 1'b0;
+								if (outP[8] == 1'b1) eout[23] 		<= out[23] 	& 1'b0;
 							end else
 							if ((g2 & 7'b1111111) == 7'b1000000) begin
 								if (outP[1] == 1'b1) 	eout[1] 	<= out[1] 	& 1'b0;
 								if (outP[3] == 1'b1) 	eout[3] 	<= out[3] 	& 1'b0;
 								if (outP[4] == 1'b1) 	eout[5] 	<= out[5] 	& 1'b0;
 								if (outP[5] == 1'b1) 	eout[8] 	<= out[8] 	& 1'b0;
-								if (outP[6] == 1'b1) 	eout[12] <= out[12] 	& 1'b0;
-								if (outP[7] == 1'b1) 	eout[17] <= out[17] 	& 1'b0;
+								if (outP[6] == 1'b1) 	eout[12] 	<= out[12] 	& 1'b0;
+								if (outP[7] == 1'b1) 	eout[17] 	<= out[17] 	& 1'b0;
 								eout[23] <= out[23] & 1'b1;
 							end
 
@@ -257,9 +257,9 @@ always_ff @(posedge pclk_50M)	begin
 								if (outP[2] == 1'b1) 	eout[3] 	<= out[3] 	& 1'b0;
 								if (outP[4] == 1'b1) 	eout[6] 	<= out[6] 	& 1'b0;
 								if (outP[5] == 1'b1) 	eout[9] 	<= out[9] 	& 1'b0;
-								if (outP[6] == 1'b1) 	eout[13] <= out[13] 	& 1'b0;
-								if (outP[7] == 1'b1) 	eout[18] <= out[18] 	& 1'b0;
-								if (outP[8] == 1'b1) 	eout[24] <= out[24] 	& 1'b0;
+								if (outP[6] == 1'b1) 	eout[13] 	<= out[13] 	& 1'b0;
+								if (outP[7] == 1'b1) 	eout[18] 	<= out[18] 	& 1'b0;
+								if (outP[8] == 1'b1) 	eout[24] 	<= out[24] 	& 1'b0;
 							end else
 							if ((g3 & 7'b0000011) == 7'b0000010) begin
 								if (outP[1] == 1'b1) 	eout[2] 	<= out[2] 	& 1'b0;
