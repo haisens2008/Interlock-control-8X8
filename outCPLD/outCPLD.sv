@@ -68,7 +68,7 @@ always_ff	@(posedge	pclk_50M)	begin
 	g4	=	{outP[8]	&	out[25],	outP[7]	&	out[19],	outP[6]	&	out[14],	outP[5]	&	out[10],	outP[3]	&	out[6],		outP[2]	&	out[5],		outP[1]	&	out[4]};
 	g5	=	{outP[8]	&	out[26],	outP[7]	&	out[20],	outP[6]	&	out[15],	outP[4]	&	out[10],	outP[3]	&	out[9],		outP[2]	&	out[8],		outP[1]	&	out[7]};
 	g6	=	{outP[8]	&	out[27],	outP[7]	&	out[21],	outP[5]	&	out[15],	outP[4]	&	out[14],	outP[3]	&	out[13],	outP[2]	&	out[12],	outP[1]	&	out[11]};
-	g7	=	{outP[8]	&	out[28],	outP[6]	&	out[21],	outP[6]	&	out[20],	outP[4]	&	out[19],	outP[3]	&	out[16],	outP[3]	&	out[15],	outP[1]	&	out[14]};
+	g7	=	{outP[8]	&	out[28],	outP[6]	&	out[21],	outP[5]	&	out[20],	outP[4]	&	out[19],	outP[3]	&	out[18],	outP[2]	&	out[17],	outP[1]	&	out[16]};
 	g8	=	{outP[7]	&	out[28],	outP[6]	&	out[27],	outP[5]	&	out[26],	outP[4]	&	out[25],	outP[3]	&	out[24],	outP[2]	&	out[23],	outP[1]	&	out[22]};
 
 	end
